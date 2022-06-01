@@ -1,25 +1,14 @@
-import logo from './logo.svg';
+//Import CSS (Cascading Style Sheets)
 import './App.css';
-
-function App() {
+//Import the function component "NotesList"
+import NotesList from './components/NotesList';
+//Create a function component
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <NotesList/>
     </div>
   );
 }
-
+//Export the function component "App"
 export default App;
