@@ -5,6 +5,8 @@ import NotesList from './components/NotesList';
 //Import the hook "useState"
 import {useState} from "react";
 import {nanoid} from "nanoid";
+//Import the "Search" function component
+import Search from "./components/Search";
 //Create a function component
 const App = () => {
   //Create a variable of type onject and a variable of type function of type setter using the "useState" hook representing the notes
@@ -14,6 +16,7 @@ const App = () => {
     {id:nanoid(), text:"This is my third note!", date:"15/04/2021"},
     {id:nanoid(), text:"This is my new note!", date:"15/04/2021"}
   ]);
+  const [searchText, setSearchText] = useState("");
   //Create an arrow function to create a new note
   const addNote = (text) => {
     const date = new Date();
@@ -32,8 +35,9 @@ const App = () => {
   }
   return (
     <div className="container">
+      <Search handleSearchNote={setSearchText}/>
       {/*Pass the "notes" variable to the "NotesList" function component by props*/}
-      <NotesList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+      <NotesList notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
     </div>
   );
 }
