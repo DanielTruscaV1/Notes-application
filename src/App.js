@@ -7,6 +7,8 @@ import {useState} from "react";
 import {nanoid} from "nanoid";
 //Import the "Search" function component
 import Search from "./components/Search";
+//Import the "Header" function component
+import Header from "./components/Header";
 //Create a function component
 const App = () => {
   //Create a variable of type onject and a variable of type function of type setter using the "useState" hook representing the notes
@@ -17,6 +19,7 @@ const App = () => {
     {id:nanoid(), text:"This is my new note!", date:"15/04/2021"}
   ]);
   const [searchText, setSearchText] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
   //Create an arrow function to create a new note
   const addNote = (text) => {
     const date = new Date();
@@ -34,10 +37,13 @@ const App = () => {
     setNotes(newNotes);
   }
   return (
-    <div className="container">
-      <Search handleSearchNote={setSearchText}/>
-      {/*Pass the "notes" variable to the "NotesList" function component by props*/}
-      <NotesList notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+    <div className={`${darkMode && 'dark-mode'}`}>
+      <div className="container">
+        <Header handleToggleDarkMode={setDarkMode}/>
+        <Search handleSearchNote={setSearchText}/>
+        {/*Pass the "notes" variable to the "NotesList" function component by props*/}
+        <NotesList notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+      </div>
     </div>
   );
 }
