@@ -14,6 +14,7 @@ const App = () => {
     {id:nanoid(), text:"This is my third note!", date:"15/04/2021"},
     {id:nanoid(), text:"This is my new note!", date:"15/04/2021"}
   ]);
+  //Create an arrow function to create a new note
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
@@ -24,10 +25,15 @@ const App = () => {
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   }
+  //Create an arrow function to delete a note
+  const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id)
+    setNotes(newNotes);
+  }
   return (
     <div className="container">
       {/*Pass the "notes" variable to the "NotesList" function component by props*/}
-      <NotesList notes={notes} handleAddNote={addNote}/>
+      <NotesList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
     </div>
   );
 }
