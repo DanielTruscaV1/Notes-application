@@ -109,3 +109,15 @@ textarea:focus {
 .search input:focus {
 	outline: none;
 }
+select
+{
+	width:60px;
+	border-radius:10px;
+	cursor:pointer;
+	border:none;
+}
+.inline
+{
+	display: flex;
+	justify-content: space-between;
+}
