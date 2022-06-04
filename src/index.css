@@ -121,3 +121,39 @@ select
 	display: flex;
 	justify-content: space-between;
 }
+.Red
+{
+	background-color: red;
+	border-radius: 10px;
+	padding: 1rem;
+	min-height: 170px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	white-space: pre-wrap;
+	color:white;
+}
+.Green
+{
+	background-color: green;
+	border-radius: 10px;
+	padding: 1rem;
+	min-height: 170px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	white-space: pre-wrap;
+	color:white;
+}
+.Blue
+{
+	background-color: blue;
+	border-radius: 10px;
+	padding: 1rem;
+	min-height: 170px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	white-space: pre-wrap;
+	color:white;
+}
